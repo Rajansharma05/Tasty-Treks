@@ -1,0 +1,57 @@
+CREATE TABLE `user` (
+  `userid` bigint NOT NULL AUTO_INCREMENT,
+  `wallet` float NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `email_id` varchar(255) DEFAULT NULL,
+  `mobile` bigint DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `UK_r9kvst217faqa7vgeyy51oos0` (`email_id`),
+  UNIQUE KEY `UK_cnjwxx5favk5ycqajjt17fwy1` (`mobile`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+
+CREATE TABLE `products` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `avail` varchar(255) DEFAULT NULL,
+  `cuisines` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `imagepath` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `offers` float NOT NULL,
+  `price` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+
+CREATE TABLE `cart` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `price` float NOT NULL,
+  `quantity` int NOT NULL,
+  `product_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_ey2t23ju6wbpsypqcd6rnm0go` (`product_id`),
+  CONSTRAINT `FKpu4bcbluhsxagirmbdn7dilm5` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+
+
+
+CREATE TABLE `admin` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email_id` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phone_no` varchar(255) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_72auwcxdo976d396pv0f1xc1w` (`email_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
